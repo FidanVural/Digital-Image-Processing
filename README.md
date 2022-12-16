@@ -3,5 +3,39 @@ Bu repoda görüntü işleme dersinde verilen ödevler ve yapılan projeler bulu
 
 1) IMAGE FILTERING 
 
-Image filtering klasörü içerisinde yer alan Images klasöründeki resimlere smoothing ve edge detection fitreleri uygulanmıştır.
-Image filtering klasörü içerisinde yer alan kodda ilk olarak .pgm formatındaki görüntüler okunulur. Okunan görüntüler üzerine bir yumuşatma filtresi olan Gaussian filtresi uygulanır. Guassian filtresinin boyutları 3x3, 5x5 ve 7x7 seçilirken sigma(σ) değerleri ise 1.0, 2.0 ve 4.0 seçilerek farklı filtre boyutları ve sigma değerlerinde elde edilen görüntüler incelenmiştir.
+Bu kısımda görüntülere smoothing ve edge detection fitreleri uygulanarak görüntüler üzerindeki değişimler incelenmiştir. Bu kısımda bahsedilen her şeyin implementasyonu C dilinde gerçekleştirilmiş olup kod klasör içerisine eklenmiştir.
+
+Image filtering klasörü içerisinde yer alan kodda ilk olarak .pgm formatındaki görüntüler okunur. Okunan görüntüler üzerine öncelikle seçilen bir yumuşatma filtresi uygulanır. Yumuşatma filtreleri (smoothing filters) gürültülü (noisy) resimleri iyileştirmek için kullanılırlar ve bu filtrelerden biri de Gaussian filtresidir. Kodda gerçekleştirilen Guassian filtresinin boyutları 3x3, 5x5 ve 7x7 seçilip sigma(σ) değerleri ise 1.0, 2.0 ve 4.0 seçilerek farklı filtre boyutları ve sigma değerlerinde elde edilen görüntüler karşılaştırılmıştır.
+Filtre boyutu ve σ değerleri artıkça resimlerin bulanıklığının arttığı görülmüştür. Burada dikkat edilmesi gereken bulanıklaştırmanın kenar tespitini engelleyecek kadar fazla olmamasıdır.
+
+Parametrelerin etkisinin bir örneğini aşağıda görebilirsiniz: 
+
+Boyut: 7x7 ve σ: 1.0 
+
+![lena1](https://user-images.githubusercontent.com/56233156/208112741-ae6879d6-30e2-462f-8757-7f752b6cfcf2.png)
+
+Boyut 7x7 ve σ: 4.0 
+
+![lena2](https://user-images.githubusercontent.com/56233156/208112713-b05644b0-5e4f-4579-a181-2f036fa669a8.png)
+
+Gaussian filtresinin uygulanmasından sonraki aşama kenar algılama (edge detection) filtrelerinin uygulanmasıdır. Kenar algılama filtrelerinin yumuşatma işleminden sonra kullanılmasının nedeni algılamayı kötü yönde etkileyen gürültüyü önlemektir. Kenar algılama filtrelerine örnek olarak Sobel ve laplacian filtreleri verilebilir. Bu filtrelerden burada Sobel filtresi incelenip görselleri verilecektir. Kodda uygulanan Sobel filtreleri şekildeki gibidir: 
+
+![sobel](https://user-images.githubusercontent.com/56233156/208115665-34f62cdc-60d6-4bd0-b9d8-207271615b15.png)
+
+Sobel filtresi sonucu elde edilen x ve y yönündeki kenarlar da aşağıdaki şekillerdeki gibidir:
+
+Sobel X => Dikey yöndeki kenarları algılar.
+
+![sobel1](https://user-images.githubusercontent.com/56233156/208116563-5a271aac-6715-4ea4-a179-60645caf7668.png)
+
+Sobel Y => Yatay yöndeki kenarları algılar.
+
+![sobel2](https://user-images.githubusercontent.com/56233156/208116579-199a8fd5-90a6-4eba-add1-1290d86e613c.png)
+
+Buradakilerin haricinde başka yumuşatma ve kenar algılama filtreleri de bulunmaktadır. Bu gibi işlemler görüntü işlemenin temellerini oluşturmaktadır.
+
+2) TEXTURE ANALYSIS
+
+Bu kısımda doku analizinden bahsedilecektir. Doku dediğimiz şey aslında tekrar eden bilgi olarak açıklanabilir. Doku analizinde birçok yöntem (Gray level co-occurance matrix, Law's texture energy maps, Local binary patterns vs.) olmakla birlikte bu kısımda incelenen Uniform Local Binary Pattern yöntemidir.Uniform Local Binary Pattern temel olarak görüntüler üzerinde 3x3 boyutunda bir kernel ile baştan sona gezerek merkez pixel ile komşu pixelleri karşılaştırır. Eğer çevre piksel değerleri merkez piksel değerinden büyükse 1 küçükse 0 olarak atama yapılır ve bunun sonucunda her kernel için 8 bitlik bir değer elde edilir. Bu 8 bitteki bit değişimleri 2’den büyükse burada anlamlı bir örüntü yoktur denerek bu şekilde çıkan bütün 8 bitlik değerler tek bir onluk tabandaki değere atanır. Bu değer bizim kodumuzda 51 olarak belirlenmiştir. Eğer bit değişimleri 2'den küçükse o zaman 8 bitlik değer onluk tabana çevrilir ve elden edilen değer ne ise o şekilde saklanır. Bu aşamanın sonunda her resim için ULBP değerlerinden oluşan yeni matrisler elde edilmiştir. ULBP sonucu oluşan her bir matris histogramları hesaplanmak üzere histogram fonksiyonuna gönderilir. Her bir resim için elde edilen histogramlar normalize edilir ve bu histogramlar saklanır. Bu işlemler hem test kalsöründeki hem de train kalsöründeki resimler için gerçekleştirilir. En sonunda ise her bir test resmi ile bütün train resimlerinin histogramları karşılaştırılarak seçilen test resmine en benzer 3 tane train resmi elde edilir. 
+
+
