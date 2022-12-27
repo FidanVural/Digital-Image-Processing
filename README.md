@@ -50,3 +50,6 @@ Aşağıda bir test resmi için en benzer 3 adet train resminin olduğu görsell
 
 Resimlerde görüldüğü gibi bazı dokularda tam başarı sağlarken bazı dokularda ise hiç bulamayabilmektedir. 
 
+3) IMAGE CLASSIFICATION
+
+
