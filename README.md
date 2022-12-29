@@ -67,4 +67,14 @@ https://pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
 ## 3) IMAGE CLASSIFICATION
 
 
+### Requirements
+
+Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. Ayrıca colab notebook üzerinde de çalışılabilir.
+
+### Kütüphaneler
+
+- Numpy 
+- Matplotlib
+- Sklearn
+- Tensorflow
 
