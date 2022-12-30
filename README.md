@@ -38,7 +38,7 @@ https://sbme-tutorials.github.io/2018/cv/notes/4_week4.html
 
 ## 2) TEXTURE ANALYSIS
 
-Doku analizinde Uniform Local Binary Pattern(ULBP) algoritmasının implementasyonu Pythn dilinde gerçekleştirilmiştir.
+Doku analizinde Uniform Local Binary Pattern(ULBP) algoritmasının implementasyonu Python dilinde gerçekleştirilmiştir. [Texture-Analysis](https://github.com/FidanVural/Digital-Image-Processing/tree/main/Texture-Analysis) klasöründen kodu inceleyebilirsiniz.
 
 ### Requirements
 
