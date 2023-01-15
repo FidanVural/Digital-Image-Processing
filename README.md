@@ -1,5 +1,5 @@
 # Digital-Image-Processing
-Bu repoda görüntü işleme dersinde verilen ödevler ve yapılan proje bulunmaktadır.
+Bu repoda görüntü işleme dersinde verilen ödevler ve yapılan projeler bulunmaktadır.
 
 ## 1) IMAGE FILTERING 
 
