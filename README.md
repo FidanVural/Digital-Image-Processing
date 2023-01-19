@@ -65,7 +65,7 @@ Resimlerde görüldüğü gibi bazı dokularda tam başarı sağlarken bazı dok
 https://pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
 
 ## 3) IMAGE CLASSIFICATION
-
+Konvolüsyonel sinir ağları(CNN) ile CIFAR-10 veri kümesi üzerinde sınıflandırma işlemi gerçekleştirilmiştir.  [CIFAR-10_CNN](https://github.com/FidanVural/Digital-Image-Processing/tree/main/CIFAR-10_CNN) klasöründen kodu inceleyebilirsiniz.
 
 ### Requirements
 
@@ -77,4 +77,17 @@ Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. A
 - Matplotlib
 - Sklearn
 - Tensorflow
+
+CIFAR-10 veri seti 32x32 boyutunda renkli resimlerden oluşmaktadır. 10 farklı sınıf mevcut olan veri setinde toplam 60000 adet resim mevcuttur. CNN yapısı ile bu 10 farklı sınıf üzerinden sınıflandırma yapılmıştır. Bu kısımda bir sinir ağı oluşturmak için birçok hiperparamtre mevcuttur. Bunlardan bazıları konvolüsyon katman sayısının belirlenmesi, konvolüsyon katmanındaki filtre sayısı ve kernel büyüklüğünün belirlenmesi, aktivasyon fonksiyonu seçimi, dropout eklenmesi ve katmanların hangi sırayla dizilecekleri şeklinde belirtilebilir. Kod içerisinde bu gibi farklı farklı parametreler denenerek en yüksek validation başarısı olan CNN yapısı belirlenmiştir ve aşağıda katmanlar gösterilmiştir.
+
+
+<img src="https://user-images.githubusercontent.com/56233156/213458804-da6ec2c6-d843-47e2-af9d-573b34822bcc.png" width="600"  height="170"/>
+
+
+CNN yapısı için konvolüsyon işlemi nasıl oluyor ya dakatmanlarda neler gerçekleşiyor gibi sorular için Andrew Ng'nin youtube üzerindeki bu serisi takip edilebilir:
+https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF
+
+Ayrıca yine CNN katmanlarıyla ilgili bilgiler için linkteki medium yazısı da incelenebilir.
+https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20CNN%20typically%20has%20three,and%20a%20fully%20connected%20layer.
+
 
