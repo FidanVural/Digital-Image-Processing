@@ -80,14 +80,30 @@ Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. A
 
 CIFAR-10 veri seti 32x32 boyutunda renkli resimlerden oluşmaktadır. 10 farklı sınıf mevcut olan veri setinde toplam 60000 adet resim mevcuttur. CNN yapısı ile bu 10 farklı sınıf üzerinden sınıflandırma yapılmıştır. Bu kısımda bir sinir ağı oluşturmak için birçok hiperparamtre mevcuttur. Bunlardan bazıları konvolüsyon katman sayısının belirlenmesi, konvolüsyon katmanındaki filtre sayısı ve kernel büyüklüğünün belirlenmesi, aktivasyon fonksiyonu seçimi, dropout eklenmesi ve katmanların hangi sırayla dizilecekleri şeklinde belirtilebilir. Kod içerisinde bu gibi farklı farklı parametreler denenerek en yüksek validation başarısı olan CNN yapısı belirlenmiştir ve aşağıda katmanlar gösterilmiştir.
 
+<img src="https://user-images.githubusercontent.com/56233156/213458804-da6ec2c6-d843-47e2-af9d-573b34822bcc.png" width="700"  height="220"/>
 
-<img src="https://user-images.githubusercontent.com/56233156/213458804-da6ec2c6-d843-47e2-af9d-573b34822bcc.png" width="600"  height="170"/>
+Aktivasyon fonksiyonu olarak ReLu kullanılmış olup katmanların arasına batch normalization işlemi eklenmiştir. Bu model test veri seti ile test edildiğinde %84.1'lik bir sınıflandırma başarısı elde edilmiştir. Son olarak bazı örnek resimler üzerinde hem o resimlerin gerçek sınıfları hem de modelin tahmin ettiği en yüksek başarıya sahip 5 sınıf gösterilmiştir. Bazı örnekler aşağıdaki görsellerden incelenebilir. Daha fazla bilgi için [rapor.pdf](https://github.com/FidanVural/Digital-Image-Processing/blob/main/CIFAR-10_CNN/rapor.pdf) incelenebilir.
 
+<img src="https://user-images.githubusercontent.com/56233156/213471486-c3289f34-7f71-418b-a86e-2d1865bbb619.png"/>
 
-CNN yapısı için konvolüsyon işlemi nasıl oluyor ya dakatmanlarda neler gerçekleşiyor gibi sorular için Andrew Ng'nin youtube üzerindeki bu serisi takip edilebilir:
+CNN yapısı için konvolüsyon işlemi nasıl oluyor ya da katmanlarda neler gerçekleşiyor gibi sorular için Andrew Ng'nin youtube üzerindeki bu serisi takip edilebilir.
+
 https://www.youtube.com/watch?v=ArPaAX_PhIs&list=PLkDaE6sCZn6Gl29AoE31iwdVwSG-KnDzF
 
 Ayrıca yine CNN katmanlarıyla ilgili bilgiler için linkteki medium yazısı da incelenebilir.
-https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20CNN%20typically%20has%20three,and%20a%20fully%20connected%20layer.
 
+https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20CNN%20typically%20has%20three,and%20a%20fully%20connected%20layer
 
+## 4) IMAGE SEGMENTATION
+Bu çalışmada LinkNet mimarisi kullanılarak Oxford veri seti üzerinde bir semantik segmentasyon işlemi gerçekleştirilmiştir.
+
+### Requirements
+
+Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. Ayrıca colab notebook üzerinde de çalışılabilir.
+
+### Kütüphaneler
+
+- Numpy 
+- Matplotlib
+- Pandas
+- Tensorflow
