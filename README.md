@@ -79,6 +79,7 @@ Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. A
 - Tensorflow
 
 CIFAR-10 veri seti 32x32 boyutunda renkli resimlerden oluşmaktadır. 10 farklı sınıf mevcut olan veri setinde toplam 60000 adet resim mevcuttur. CNN yapısı ile bu 10 farklı sınıf üzerinden sınıflandırma yapılmıştır. Bu kısımda bir sinir ağı oluşturmak için birçok hiperparamtre mevcuttur. Bunlardan bazıları konvolüsyon katman sayısının belirlenmesi, konvolüsyon katmanındaki filtre sayısı ve kernel büyüklüğünün belirlenmesi, aktivasyon fonksiyonu seçimi, dropout eklenmesi ve katmanların hangi sırayla dizilecekleri şeklinde belirtilebilir. Kod içerisinde bu gibi farklı farklı parametreler denenerek en yüksek validation başarısı olan CNN yapısı belirlenmiş olup aşağıdaki görselde bu yapı özetlenmiştir.
+
 <img src="https://user-images.githubusercontent.com/56233156/213458804-da6ec2c6-d843-47e2-af9d-573b34822bcc.png" width="700"  height="220"/>
 
 Aktivasyon fonksiyonu olarak ReLu kullanılıp katmanların arasına batch normalization işlemi eklenmiştir. Bu model test veri seti ile test edildiğinde %84.1'lik bir sınıflandırma başarısı elde edilir. Son olarak bazı örnek resimler üzerinde hem o resimlerin gerçek sınıfları hem de modelin tahmin ettiği en yüksek başarıya sahip 5 sınıf gösterilmiştir. Bazı örnekler aşağıdan incelenebilir.
