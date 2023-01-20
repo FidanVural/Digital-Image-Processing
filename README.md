@@ -65,7 +65,7 @@ Resimlerde görüldüğü gibi bazı dokularda tam başarı sağlarken bazı dok
 https://pyimagesearch.com/2015/12/07/local-binary-patterns-with-python-opencv/
 
 ## 3) IMAGE CLASSIFICATION
-Konvolüsyonel sinir ağları(CNN) ile CIFAR-10 veri kümesi üzerinde sınıflandırma işlemi gerçekleştirilmiştir.  [CIFAR-10_CNN](https://github.com/FidanVural/Digital-Image-Processing/tree/main/CIFAR-10_CNN) klasöründen kodu inceleyebilirsiniz.
+Konvolüsyonel sinir ağları(CNN) ile CIFAR-10 veri kümesi üzerinde sınıflandırma işlemi gerçekleştirilmiştir.  [CIFAR-10_CNN](https://github.com/FidanVural/Digital-Image-Processing/tree/main/CIFAR-10_CNN) klasöründen kodu ve raporu inceleyebilirsiniz.
 
 ### Requirements
 
@@ -78,11 +78,10 @@ Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. A
 - Sklearn
 - Tensorflow
 
-CIFAR-10 veri seti 32x32 boyutunda renkli resimlerden oluşmaktadır. 10 farklı sınıf mevcut olan veri setinde toplam 60000 adet resim mevcuttur. CNN yapısı ile bu 10 farklı sınıf üzerinden sınıflandırma yapılmıştır. Bu kısımda bir sinir ağı oluşturmak için birçok hiperparamtre mevcuttur. Bunlardan bazıları konvolüsyon katman sayısının belirlenmesi, konvolüsyon katmanındaki filtre sayısı ve kernel büyüklüğünün belirlenmesi, aktivasyon fonksiyonu seçimi, dropout eklenmesi ve katmanların hangi sırayla dizilecekleri şeklinde belirtilebilir. Kod içerisinde bu gibi farklı farklı parametreler denenerek en yüksek validation başarısı olan CNN yapısı belirlenmiştir ve aşağıda katmanlar gösterilmiştir.
-
+CIFAR-10 veri seti 32x32 boyutunda renkli resimlerden oluşmaktadır. 10 farklı sınıf mevcut olan veri setinde toplam 60000 adet resim mevcuttur. CNN yapısı ile bu 10 farklı sınıf üzerinden sınıflandırma yapılmıştır. Bu kısımda bir sinir ağı oluşturmak için birçok hiperparamtre mevcuttur. Bunlardan bazıları konvolüsyon katman sayısının belirlenmesi, konvolüsyon katmanındaki filtre sayısı ve kernel büyüklüğünün belirlenmesi, aktivasyon fonksiyonu seçimi, dropout eklenmesi ve katmanların hangi sırayla dizilecekleri şeklinde belirtilebilir. Kod içerisinde bu gibi farklı farklı parametreler denenerek en yüksek validation başarısı olan CNN yapısı belirlenmiş olup aşağıdaki görselde bu yapı özetlenmiştir.
 <img src="https://user-images.githubusercontent.com/56233156/213458804-da6ec2c6-d843-47e2-af9d-573b34822bcc.png" width="700"  height="220"/>
 
-Aktivasyon fonksiyonu olarak ReLu kullanılmış olup katmanların arasına batch normalization işlemi eklenmiştir. Bu model test veri seti ile test edildiğinde %84.1'lik bir sınıflandırma başarısı elde edilmiştir. Son olarak bazı örnek resimler üzerinde hem o resimlerin gerçek sınıfları hem de modelin tahmin ettiği en yüksek başarıya sahip 5 sınıf gösterilmiştir. Bazı örnekler aşağıdaki görsellerden incelenebilir. Daha fazla bilgi için [rapor.pdf](https://github.com/FidanVural/Digital-Image-Processing/blob/main/CIFAR-10_CNN/rapor.pdf) incelenebilir.
+Aktivasyon fonksiyonu olarak ReLu kullanılıp katmanların arasına batch normalization işlemi eklenmiştir. Bu model test veri seti ile test edildiğinde %84.1'lik bir sınıflandırma başarısı elde edilir. Son olarak bazı örnek resimler üzerinde hem o resimlerin gerçek sınıfları hem de modelin tahmin ettiği en yüksek başarıya sahip 5 sınıf gösterilmiştir. Bazı örnekler aşağıdan incelenebilir.
 
 <img src="https://user-images.githubusercontent.com/56233156/213471486-c3289f34-7f71-418b-a86e-2d1865bbb619.png"/>
 
@@ -95,7 +94,7 @@ Ayrıca yine CNN katmanlarıyla ilgili bilgiler için linkteki medium yazısı d
 https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20CNN%20typically%20has%20three,and%20a%20fully%20connected%20layer
 
 ## 4) IMAGE SEGMENTATION
-Bu çalışmada LinkNet mimarisi kullanılarak Oxford veri seti üzerinde bir semantik segmentasyon işlemi gerçekleştirilmiştir.
+Bu çalışmada LinkNet mimarisi kullanılarak Oxford-IIIT Pet veri seti üzerinde bir semantik segmentasyon işlemi gerçekleştirilmiştir. Veri setine https://www.robots.ox.ac.uk/~vgg/data/pets/ linkinden erişebilirsiniz ya da Tensorflow Dataset içerisinde hazır olarak bulunan halini yükleyebilirsiniz. Ek olarak [Image-Segmentation](https://github.com/FidanVural/Digital-Image-Processing/tree/main/Image-Segmentation) klasöründen semantik segmentasyon kodunu ve açıklamaların olduğu raporu inceleyebilirsiniz.
 
 ### Requirements
 
@@ -107,3 +106,23 @@ Bilgisyarınızda Python 3.x versiyonu ve Jupyter Notebook kurulu olmalıdır. A
 - Matplotlib
 - Pandas
 - Tensorflow
+
+Oxford-IIIT Pet veri seti 37 farklı sınıftan oluşan evcil hayvan görselleri, etiketleri ve piksel bazında maskeleri içermektedir. Bu veri seti üzerinde encoder decoder şeklindeki LinkNet mimarisi ile semantik segmentasyon işlemi gerçekleştirilmiştir. Encoder yapısı görüntüyü alıp yüksek boyutlu özellik vektörlerine çeviriken decoder yapısı ise bu özellik vektörlerini alarak bir semantik segmentasyon maskesi oluşturmaktadır. LinkNet mimarisi giriş katmanı, encder katmanları, decoder katmanları ve çıkış katmanı olmak üzere 4 kısma ayrılabilir. LinkNet encoder bloğu olarak ResNet18 mimarisini kullanmaktadır. Aslında bu kısım bildiğimiz CNN mimarisi şeklindedir. Ancak decoder kısmına geldiğimizde burada bir deconvolution ya da transpose convolution denilen kavram bulunmaktadır. Transpose convolution işleminde görüntü orijinal haline getirilmketedir ve bu da bir pikselde bulunan bilgi diğerlerine yayılarak yapılmaktadır. Daha iyi anlamak için aşağıdski gif incelenebilir. 
+
+![alt text](https://github.com/FidanVural/Digital-Image-Processing/blob/main/Image-Segmentation/transpose_conv.png)
+
+Hem transpose convolution işleminin nasıl yapıldığının daha iyi anlaşılması için hem de semantik segmentasyon için Stanford üniversitesine ait slayt serisi http://cs231n.stanford.edu/slides/2017/cs231n_2017_lecture11.pdf linkinden incelenebilir. Bu slaytlardan transpose convolution işlemine ait bir görsel aşağıda verilmiştir. 2x2'lik bir görüntüye 3x3'lük bir transpose convolution işlemi uygulanmıştır. Padding 1 ve stride 2 olacak şekilde deconvolution işlemi gerçekleştirilmiştir.
+
+<img src="https://user-images.githubusercontent.com/56233156/213646763-ddc0df61-b621-4edf-9b4d-d3f5ccae2846.png" width="700"  height="320"/>
+
+Hiperparametre değişimi ile birden çok model denenmiştir. Bunlar içerisinden validation başarısı en yüksek model seçilip test setinde üzerinde test edildiğinde %85.56'lık başarı elde edilmiştir. Değerlendirme metrikleri olarak doğrulamanın yanı sıra dice katsayısı kullanılmıştır. Dice katsayısı tahmin edilen segmentasyon ile gorund truth değerleri arasındaki piksel bazında bir karşılaştırmadır. Dice katsayısı değeri 1’e ne kadar yaklaşırsa ground truth değerleri ile tahmin edilen segmentasyon değerleri arasında örtüşme o kadar artar denilebilmektedir. En son mevcut görüntüler, gorund truth ve model tarafından tahmin edilen segmentasyon görselleştirilmiştir. 
+
+<img src="https://user-images.githubusercontent.com/56233156/213649554-1704af03-e81e-4edd-b052-3fe364c588a4.png"/>
+
+Genel olarak segmentasyon ile ilgili bilgi edinmek için Stanford Üniveristesi tarafından yayınlanan aşağıdaki youtube linki incelenebilir.
+
+https://www.youtube.com/watch?v=nDPWywWRIRo&t=3143s
+
+LinkNet mimarisinin makalesine aşağıdaki bağlantıdan erişebilirisiniz.
+
+https://arxiv.org/pdf/1707.03718.pdf 
