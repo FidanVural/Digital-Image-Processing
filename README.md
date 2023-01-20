@@ -126,3 +126,5 @@ https://www.youtube.com/watch?v=nDPWywWRIRo&t=3143s
 LinkNet mimarisinin makalesine aşağıdaki bağlantıdan erişebilirisiniz.
 
 https://arxiv.org/pdf/1707.03718.pdf 
+
+----
